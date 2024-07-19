@@ -15,4 +15,18 @@ public class Company {
     private String Adress;
     private String Logo;
     private String WebSite;
+
+    public Company(long id, String name, String description, String location, String adress, String logo, String webSite) {
+        Id = id;
+        Name = name;
+        Description = description;
+        Location = location;
+        Adress = adress;
+        Logo = logo;
+        WebSite = webSite;
+    }
+
+    public Company() {
+
+    }
 }

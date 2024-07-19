@@ -24,4 +24,17 @@ public class JobOffer {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Application> applicationList;
 
+    public JobOffer(long id, String position, String details, LocalDate startingDate, LocalDate endingDate, String location, Company company) {
+        Id = id;
+        Position = position;
+        Details = details;
+        StartingDate = startingDate;
+        EndingDate = endingDate;
+        Location = location;
+        this.company = company;
+    }
+
+    public JobOffer() {
+
+    }
 }

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2da5cb32-dbd9-4393-9819-3656d30bbcac" name="Changes" comment="" />
+    <list default="true" id="2da5cb32-dbd9-4393-9819-3656d30bbcac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2jQRTWTpZn79xQgj0V8YyjNp9JL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,6 +25,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/User5452/Downloads/nvd_proekt/backend",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -32,6 +38,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721317325122</updated>
       <workItem from="1721317329490" duration="259000" />
+      <workItem from="1721418251531" duration="124000" />
     </task>
     <servers />
   </component>
