@@ -35,7 +35,7 @@ public class CompanyServiceIMPL implements CompanyService {
        company.setName(name);
        company.setDescription(description);
        company.setLocation(location);
-       company.setAdress(adress);
+       company.setAddress(adress);
        company.setLogo(logo);
        company.setWebSite(webSite);
 
