@@ -12,16 +12,16 @@ public class Company {
     private String Name;
     private String Description;
     private String Location;
-    private String Adress;
+    private String Address;
     private String Logo;
     private String WebSite;
 
-    public Company(long id, String name, String description, String location, String adress, String logo, String webSite) {
+    public Company(long id, String name, String description, String location, String address, String logo, String webSite) {
         Id = id;
         Name = name;
         Description = description;
         Location = location;
-        Adress = adress;
+        Address = address;
         Logo = logo;
         WebSite = webSite;
     }
