@@ -41,8 +41,8 @@ public class ApplicationServiceIMPL implements ApplicationService {
     }
 
     @Override
-    public Application create(long id, String name, String lastName, String email, String phoneNumber) {
-        Application application = new Application(id, name, lastName, email, phoneNumber);
+    public Application create(String name, String lastName, String email, String phoneNumber) {
+        Application application = new Application(name, lastName, email, phoneNumber);
         return applicationRepository.save(application);
     }
 

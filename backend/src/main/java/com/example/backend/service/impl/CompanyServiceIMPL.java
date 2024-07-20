@@ -24,8 +24,8 @@ public class CompanyServiceIMPL implements CompanyService {
     }
 
     @Override
-    public Company create(long id, String name, String description, String location, String address, String logo, String webSite) {
-        Company company = new Company(id, name, description, location, address, logo, webSite);
+    public Company create( String name, String description, String location, String address, String logo, String webSite) {
+        Company company = new Company( name, description, location, address, logo, webSite);
         return companyRepository.save(company);
     }
 

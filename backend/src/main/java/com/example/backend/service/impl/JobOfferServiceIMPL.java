@@ -33,8 +33,8 @@ public class JobOfferServiceIMPL implements JobOfferService {
     }
 
     @Override
-    public JobOffer create(long id, String position, String details, LocalDate startingDate, LocalDate endingDate, String location, Long companyId) {
-        JobOffer jobOffer = new JobOffer(id, position, details, startingDate, endingDate, location, companyRepository.findById(companyId).orElseThrow(InvalidCompanyIdException::new));
+    public JobOffer create(String position, String details, LocalDate startingDate, LocalDate endingDate, String location, Long companyId) {
+        JobOffer jobOffer = new JobOffer(position, details, startingDate, endingDate, location, companyRepository.findById(companyId).orElseThrow(InvalidCompanyIdException::new));
 
         return jobOfferRepository.save(jobOffer);
     }

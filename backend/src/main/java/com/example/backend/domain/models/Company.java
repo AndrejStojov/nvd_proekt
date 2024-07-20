@@ -16,8 +16,8 @@ public class Company {
     private String Logo;
     private String WebSite;
 
-    public Company(long id, String name, String description, String location, String address, String logo, String webSite) {
-        Id = id;
+    public Company( String name, String description, String location, String address, String logo, String webSite) {
+
         Name = name;
         Description = description;
         Location = location;
