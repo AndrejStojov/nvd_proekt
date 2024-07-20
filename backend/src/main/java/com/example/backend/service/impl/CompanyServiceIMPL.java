@@ -4,9 +4,11 @@ import com.example.backend.domain.models.Company;
 import com.example.backend.repository.CompanyRepository;
 import com.example.backend.service.CompanyService;
 import com.example.backend.domain.models.excepitons.InvalidCompanyIdException;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CompanyServiceIMPL implements CompanyService {
     private final CompanyRepository companyRepository;
 

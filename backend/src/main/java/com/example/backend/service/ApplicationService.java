@@ -13,7 +13,7 @@ public interface ApplicationService {
 
     //Optional<Application> save(ApplicationDto applicationDto);
     Application update(long id, String name, String lastName, String email, String phoneNumber);
-    Application create(String name, String lastName, String email, String phoneNumber);
+    Application create(String name, String lastName, String email, String phoneNumber,long jobOfferId);
 
     //Optional<Application> edit(ApplicationDto applicationDto);
     void deleteById(long id);

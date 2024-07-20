@@ -8,11 +8,12 @@ import com.example.backend.domain.models.excepitons.InvalidJobOfferIdException;
 import com.example.backend.repository.CompanyRepository;
 import com.example.backend.repository.JobOfferRepository;
 import com.example.backend.service.JobOfferService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class JobOfferServiceIMPL implements JobOfferService {
 
     private final JobOfferRepository jobOfferRepository;

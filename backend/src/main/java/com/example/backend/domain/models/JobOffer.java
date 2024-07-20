@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,6 +33,7 @@ public class JobOffer {
         EndingDate = endingDate;
         Location = location;
         this.company = company;
+        applicationList=new ArrayList<>();
     }
 
     public JobOffer() {

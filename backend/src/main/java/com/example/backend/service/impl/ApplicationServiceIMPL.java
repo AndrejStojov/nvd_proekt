@@ -1,18 +1,25 @@
 package com.example.backend.service.impl;
 
 import com.example.backend.domain.models.Application;
+import com.example.backend.domain.models.JobOffer;
+import com.example.backend.domain.models.excepitons.InvalidJobOfferIdException;
 import com.example.backend.repository.ApplicationRepository;
+import com.example.backend.repository.JobOfferRepository;
 import com.example.backend.service.ApplicationService;
 import com.example.backend.domain.models.excepitons.InvalidApplicationIdException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ApplicationServiceIMPL implements ApplicationService {
     private final ApplicationRepository applicationRepository;
+    private final JobOfferRepository jobOfferRepository;
 
-    public ApplicationServiceIMPL(ApplicationRepository applicationRepository){
+    public ApplicationServiceIMPL(ApplicationRepository applicationRepository, JobOfferRepository jobOfferRepository){
         this.applicationRepository = applicationRepository;
+        this.jobOfferRepository = jobOfferRepository;
     }
     @Override
     public List<Application> findAll() {
@@ -41,9 +48,12 @@ public class ApplicationServiceIMPL implements ApplicationService {
     }
 
     @Override
-    public Application create(String name, String lastName, String email, String phoneNumber) {
+    public Application create(String name, String lastName, String email, String phoneNumber,long jobOfferId) {
         Application application = new Application(name, lastName, email, phoneNumber);
-        return applicationRepository.save(application);
+        applicationRepository.save(application);
+        JobOffer joboffer=jobOfferRepository.findById(jobOfferId).orElseThrow(InvalidJobOfferIdException::new);
+        joboffer.getApplicationList().add(application);
+        return application;
     }
 
     @Override
