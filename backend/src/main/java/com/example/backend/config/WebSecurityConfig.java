@@ -49,7 +49,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/assets/**", "/register", "/products", "/api/**", "/login")
+                        .requestMatchers("/", "/home", "/assets/**", "/register",  "/api/**")
                         .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest()
@@ -59,7 +59,7 @@ public class WebSecurityConfig {
                         .loginPage("api/login")
                         .permitAll()
                         .failureUrl("/login?error=BadCredentials")
-                        .defaultSuccessUrl("/products", true)
+                        .defaultSuccessUrl("/api/joboffers", true)
                 )
                 .logout((logout) -> logout
                         .logoutUrl("api/logout")
