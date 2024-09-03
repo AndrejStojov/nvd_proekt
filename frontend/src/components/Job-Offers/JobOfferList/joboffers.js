@@ -18,7 +18,7 @@ class JobOffers extends React.Component {
         const offset = this.state.size * this.state.page;
         const nextPageOffset = offset + this.state.size;
         const pageCount = Math.ceil(this.props.joboffers.length / this.state.size);
-        const joboffers = this.getJobOffersPage(offset, nextPageOffset);
+        const joboffers = this.getJobOfferPage(offset, nextPageOffset);
         console.log(joboffers, pageCount)
 
         return (
