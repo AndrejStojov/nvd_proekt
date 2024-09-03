@@ -48,4 +48,13 @@ public class CompanyServiceIMPL implements CompanyService {
     public void deleteById(long id) {
         this.companyRepository.deleteById(id);;
     }
+
+//    @Override
+//    public boolean companyNameExists(String name) {
+//        if(companyRepository.findByName(name)!=null){
+//            return true;
+//        }
+//
+//        return false;
+//    }
 }

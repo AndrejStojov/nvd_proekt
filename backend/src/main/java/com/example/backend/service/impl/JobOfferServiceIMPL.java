@@ -62,4 +62,12 @@ public class JobOfferServiceIMPL implements JobOfferService {
         JobOffer jobOffer = jobOfferRepository.findById(jobOfferId).orElseThrow(InvalidJobOfferIdException::new);
         return jobOffer.getApplicationList();
     }
+
+//    @Override
+//    public boolean jobOfferExists(String position, String CompanyName) {
+//        if(jobOfferRepository.findByPositionAndCompany(position,companyRepository.findByName(CompanyName))!=null){
+//            return true;
+//        }
+//        return false;
+//    }
 }
