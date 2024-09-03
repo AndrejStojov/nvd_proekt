@@ -56,17 +56,17 @@ public class WebSecurityConfig {
                         .authenticated()
                 )
                 .formLogin((form) -> form
-                        .loginPage("/login")
+                        .loginPage("api/login")
                         .permitAll()
                         .failureUrl("/login?error=BadCredentials")
                         .defaultSuccessUrl("/products", true)
                 )
                 .logout((logout) -> logout
-                        .logoutUrl("/logout")
+                        .logoutUrl("api/logout")
                         .clearAuthentication(true)
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
-                        .logoutSuccessUrl("/login")
+                        .logoutSuccessUrl("api/login")
                 )
                 .exceptionHandling((ex) -> ex
                         .accessDeniedPage("/access_denied")
