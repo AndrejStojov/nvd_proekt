@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: your_dockerhub_username/my_postgres:latest
+    container_name: my_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: andrej123
+      POSTGRES_DB: baza_nvd    
+
+volumes:
+  pgdata:  # Declares the named volume
+
