@@ -12,4 +12,6 @@ public interface CompanyService {
     Company create(String name, String description, String location, String address, String logo, String webSite);
     Company update(long id, String name, String description, String location, String adress, String logo, String webSite);
     void deleteById(long id);
+    //boolean companyNameExists(String name);
+
 }

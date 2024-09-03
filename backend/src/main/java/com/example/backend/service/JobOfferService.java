@@ -16,4 +16,6 @@ public interface JobOfferService {
     void deleteById(long id);
 
     List<Application> getApplicationsForJobOffer(Long jobOfferId);
+
+   // boolean jobOfferExists(String position,String CompanyName);
 }
