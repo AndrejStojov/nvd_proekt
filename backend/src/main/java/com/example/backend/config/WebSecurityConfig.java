@@ -39,6 +39,7 @@ public class WebSecurityConfig {
         corsConfiguration.setAllowedOrigins(List.of("http://localhost:3000"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         corsConfiguration.setAllowedHeaders(List.of("*"));
+        corsConfiguration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
         return source;
@@ -47,26 +48,30 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Use your CORS configuration source
                 .authorizeHttpRequests((requests) -> requests
+<<<<<<< HEAD
                         .requestMatchers("/", "/home", "/assets/**", "/api/**")
+=======
+                        .requestMatchers("/", "/home", "/assets/**", "/register", "/api/**") // Public paths
+>>>>>>> c0cddd1440603daae180e9b31ec9debdc1c256cf
                         .permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasRole("ADMIN") // Admin paths
                         .anyRequest()
-                        .authenticated()
+                        .authenticated() // All other paths require authentication
                 )
                 .formLogin((form) -> form
-                        .loginPage("api/login")
+                        .loginPage("/api/login") // Corrected to match typical Spring path expectations
                         .permitAll()
                         .failureUrl("/login?error=BadCredentials")
                         .defaultSuccessUrl("/api/joboffers", true)
                 )
                 .logout((logout) -> logout
-                        .logoutUrl("api/logout")
+                        .logoutUrl("/api/logout") // Corrected to match typical Spring path expectations
                         .clearAuthentication(true)
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
-                        .logoutSuccessUrl("api/login")
+                        .logoutSuccessUrl("/api/login")
                 )
                 .exceptionHandling((ex) -> ex
                         .accessDeniedPage("/access_denied")
@@ -79,7 +84,7 @@ public class WebSecurityConfig {
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.authenticationProvider(authenticationProvider);
+        authenticationManagerBuilder.authenticationProvider(authenticationProvider); // Register custom provider
         return authenticationManagerBuilder.build();
     }
 
