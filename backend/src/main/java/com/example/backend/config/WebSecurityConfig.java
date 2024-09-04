@@ -50,11 +50,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Use your CORS configuration source
                 .authorizeHttpRequests((requests) -> requests
-<<<<<<< HEAD
                         .requestMatchers("/", "/home", "/assets/**", "/api/**")
-=======
-                        .requestMatchers("/", "/home", "/assets/**", "/register", "/api/**") // Public paths
->>>>>>> c0cddd1440603daae180e9b31ec9debdc1c256cf
                         .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN") // Admin paths
                         .anyRequest()
