@@ -170,7 +170,10 @@ class App extends Component {
                         <Routes>
                             <Route
                                 path="/applications"
-                                element={<Applications applications={this.state.applications} />}
+                                element={<Applications
+                                    applications={this.state.applications}
+                                    onDelete={this.deleteApplication}
+                                    onEdit={this.getApplication}/>}
                             />
                             <Route
                                 path="/applications/add"
@@ -186,7 +189,11 @@ class App extends Component {
                                 }
                             />
 
-                            <Route path="/companies" element={<Companies companies={this.state.companies} />} />
+                            <Route path="/companies" element={<Companies
+                                companies={this.state.companies}
+                                onDelete={this.deleteCompany} //ovaa dodadov ako treba delete
+                                onEdit={this.getCompany}   //ovaa dodadov ako treba edit
+                            />} />
                             <Route
                                 path="/companies/add"
                                 element={<CompanyAdd onAddCompany={this.addCompany} />}
@@ -201,7 +208,10 @@ class App extends Component {
                                 }
                             />
 
-                            <Route path="/joboffers" element={<JobOffers joboffers={this.state.joboffers} />} />
+                            <Route path="/joboffers" element={<JobOffers
+                                joboffers={this.state.joboffers}/>}
+                                onEdit={this.getJobOffer}
+                                onDelete={this.deleteJobOffer}/>
                             <Route
                                 path="/joboffers/add"
                                 element={<JobOfferAdd companies={this.state.companies} onAddJobOffer={this.addJobOffer} />}
@@ -213,6 +223,7 @@ class App extends Component {
                                         companies={this.state.companies}
                                         onEditJobOffer={this.updateJobOffer}
                                         joboffer={this.state.selectedJobOffer}
+                                        applications={this.state.applications} //valjda ova isto treba???
                                     />
                                 }
                             />
