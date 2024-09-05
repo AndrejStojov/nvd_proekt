@@ -13,7 +13,8 @@ public class Application {
     private String lastName;
     private String email;
     private String phoneNumber;
-
+    @Lob
+    private byte[] cvFile;
     public Application( String name, String lastName, String email, String phoneNumber) {
 
         this.name = name;

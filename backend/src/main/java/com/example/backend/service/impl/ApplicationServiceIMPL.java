@@ -60,4 +60,9 @@ public class ApplicationServiceIMPL implements ApplicationService {
     public void deleteById(long id) {
        this.applicationRepository.deleteById(id);
     }
+
+    @Override
+    public Application saveApplication(Application application) {
+         return applicationRepository.save(application);
+    }
 }

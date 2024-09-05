@@ -32,10 +32,9 @@ public class WebScrapper {
 
         this.chatModel = chatModel;
     }
-    @Scheduled(fixedDelay = 600000)
+    @Scheduled(cron = "0 0 12 * * ?")
     public void scrapeForOffers() {
         String url = "https://kariera.mk/search?city=-1&occupation=4&s=";
-
         try{
             Document doc = Jsoup.connect(url)
                     .get();

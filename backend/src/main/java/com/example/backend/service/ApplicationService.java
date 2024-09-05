@@ -17,6 +17,7 @@ public interface ApplicationService {
 
     //Optional<Application> edit(ApplicationDto applicationDto);
     void deleteById(long id);
+    Application saveApplication(Application application);
 
 
 }

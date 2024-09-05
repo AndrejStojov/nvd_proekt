@@ -25,7 +25,7 @@ public class CompanyController {
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Company> listAllCompanies(){
         return companyService.findAll();
     }
