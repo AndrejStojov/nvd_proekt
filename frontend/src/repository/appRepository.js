@@ -28,10 +28,10 @@ const AppService = {
     },
 
     fetchCompanies: () => {
-        return axios.get("/companies");
+        return axios.get("/company");
     },
     addCompany: (name, description, location, address, logo, webSite) => {
-        return axios.post("/companies/add", {
+        return axios.post("/company/add", {
             "name" : name,
             "description" : description,
             "location" : location,
@@ -41,7 +41,7 @@ const AppService = {
         });
     },
     updateCompany: (id, name, description, location, address, logo, webSite) => {
-        return axios.put(`/companies/edit/${id}`, {
+        return axios.put(`/company/edit/${id}`, {
             "name" : name,
             "description" : description,
             "location" : location,
@@ -51,10 +51,10 @@ const AppService = {
         });
     },
     deleteCompany: (id) => {
-        return axios.delete(`/companies/delete/${id}`);
+        return axios.delete(`/company/delete/${id}`);
     },
     getCompany:(id)=>{
-        return axios.get(`/companies/${id}`);
+        return axios.get(`/company/${id}`);
     },
 
     fetchJobOffers: () => {
