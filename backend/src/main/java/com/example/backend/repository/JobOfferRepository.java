@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JobOfferRepository extends JpaRepository<JobOffer,Long> {
-    //JobOffer findByPositionAndCompany(String position,Company company);
+    JobOffer findByPositionEqualsAndCompanyEquals(String position,Company company);
 }

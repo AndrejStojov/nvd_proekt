@@ -14,11 +14,12 @@ public class JobOffer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
-    private String Position;
-    private String Details;
-    private LocalDate StartingDate;
-    private LocalDate EndingDate;
-    private String Location;
+    private String position;
+    @Column(length = 1500)
+    private String details;
+    private LocalDate startingDate;
+    private LocalDate endingDate;
+    private String location;
     @ManyToOne
     private Company company;
 
@@ -27,11 +28,11 @@ public class JobOffer {
 
     public JobOffer( String position, String details, LocalDate startingDate, LocalDate endingDate, String location, Company company) {
 
-        Position = position;
-        Details = details;
-        StartingDate = startingDate;
-        EndingDate = endingDate;
-        Location = location;
+        this.position = position;
+        this.details = details;
+        this.startingDate = startingDate;
+        this.endingDate = endingDate;
+        this.location = location;
         this.company = company;
         applicationList=new ArrayList<>();
     }

@@ -9,17 +9,17 @@ public class Application {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
-    private String Name;
-    private String LastName;
-    private String Email;
-    private String PhoneNumber;
+    private String name;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
 
     public Application( String name, String lastName, String email, String phoneNumber) {
 
-        Name = name;
-        LastName = lastName;
-        Email = email;
-        PhoneNumber = phoneNumber;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public Application() {
