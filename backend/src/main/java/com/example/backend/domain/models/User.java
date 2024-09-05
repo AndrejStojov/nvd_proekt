@@ -17,6 +17,10 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
     private String username;
     @Version
     private Long version;
@@ -32,6 +36,8 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
 
     public User(String username, String password, String name, String surname, Role role) {
         this.username = username;
@@ -43,6 +49,22 @@ public class User implements UserDetails {
 
     public User() {
 
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<Token> tokens) {
+        this.tokens = tokens;
     }
 
     @Override
