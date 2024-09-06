@@ -17,4 +17,5 @@ public interface JobOfferService {
 
     List<Application> getApplicationsForJobOffer(Long jobOfferId);
     JobOffer findByNameAndCompany(String position,String CompanyName);
+    JobOffer saveJobOffer(JobOffer jobOffer);
 }

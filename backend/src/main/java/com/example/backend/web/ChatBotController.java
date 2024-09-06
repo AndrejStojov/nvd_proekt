@@ -17,6 +17,6 @@ public class ChatBotController {
 
     @PostMapping("/chat")
     public String chat(@RequestBody ChatDTO ChatRequest){
-        return chatModel.call(ChatRequest.getQuery());
+        return chatModel.call(ChatRequest.getQuery()+"If the question before this was not related to IT or about the Job offer application you are on do not answer say you can not help with that.");
     }
 }

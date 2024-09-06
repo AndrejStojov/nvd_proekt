@@ -69,6 +69,11 @@ public class JobOfferServiceIMPL implements JobOfferService {
         return jobOfferRepository.findByPositionEqualsAndCompanyEquals(position,c);
     }
 
+    @Override
+    public JobOffer saveJobOffer(JobOffer jobOffer) {
+        return jobOfferRepository.save(jobOffer);
+    }
+
 //    @Override
 //    public boolean jobOfferExists(String position, String CompanyName) {
 //        if(jobOfferRepository.findByPositionAndCompany(position,companyRepository.findByName(CompanyName))!=null){
