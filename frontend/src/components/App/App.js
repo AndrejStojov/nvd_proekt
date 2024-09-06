@@ -12,6 +12,8 @@ import JobOfferEdit from "../Job-Offers/JobOfferEdit/jobofferEdit";
 import JobOfferAdd from "../Job-Offers/JobOfferAdd/jobofferAdd";
 import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
 import ChatBot from "../ChatBot/chatbot";
+import Login from "../Login/login";
+import Register from "../Register/register"
 
 class App extends Component {
     constructor(props) {
@@ -210,9 +212,11 @@ class App extends Component {
                             />
 
                             <Route path="/joboffers" element={<JobOffers
-                                joboffers={this.state.joboffers}/>}
+                                joboffers={this.state.joboffers}
                                 onEdit={this.getJobOffer}
-                                onDelete={this.deleteJobOffer}/>
+                                onDelete={this.deleteJobOffer}
+                                />}
+                                />
                             <Route
                                 path="/joboffers/add"
                                 element={<JobOfferAdd companies={this.state.companies} onAddJobOffer={this.addJobOffer} />}
@@ -230,6 +234,8 @@ class App extends Component {
                             />
                             <Route path="/chat" element={<ChatBot></ChatBot>} />
                             <Route path="/" element={<Navigate to="/joboffers" />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
                         </Routes>
                     </div>
                 </main>
