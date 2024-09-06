@@ -8,7 +8,7 @@ const companyTerm = (props) => {
             <td>{props.term.description}</td>
             <td>{props.term.location}</td>
             <td>{props.term.address}</td>
-            <td>{props.term.logo}</td>
+            <td> <img className='w-100 h-100' src={props.term.logo}></img></td>
             <td>{props.term.webSite}</td>
 
             <td className={"text-right"}>

@@ -20,7 +20,7 @@ public class JobOffer {
     private LocalDate startingDate;
     private LocalDate endingDate;
     private String location;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Company company;
 
     @OneToMany(fetch = FetchType.EAGER)
