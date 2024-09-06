@@ -30,7 +30,7 @@ public class ApplicationController {
 
     @PostMapping("/apply")
     public ResponseEntity<String> apply(
-            @RequestParam("jobOfferId") String jobOfferId,
+            @RequestParam("jobOfferId") long jobOfferId,
             @RequestParam("name") String name,
             @RequestParam("lastName") String lastName,
             @RequestParam("email") String email,
@@ -39,7 +39,7 @@ public class ApplicationController {
 
         try {
             // Find the job offer to which the application is being made
-            Optional<JobOffer> jobOfferOptional = jobOfferService.findById(Long.parseLong(jobOfferId) );
+            Optional<JobOffer> jobOfferOptional = jobOfferService.findById(jobOfferId );
             if (jobOfferOptional.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Job offer not found");
             }

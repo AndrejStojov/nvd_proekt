@@ -47,6 +47,8 @@ class App extends Component {
     };
 
     loadCompanies = () => {
+       //how to get access token
+        console.log( JSON.parse(localStorage.getItem("user")).access_token)
         AppService.fetchCompanies()
             .then((data) => {
                 this.setState({ companies: data.data });
