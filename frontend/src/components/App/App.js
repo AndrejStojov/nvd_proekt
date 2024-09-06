@@ -11,6 +11,7 @@ import ApplicationAdd from "../Applications/ApplicationAdd/applicationAdd";
 import JobOfferEdit from "../Job-Offers/JobOfferEdit/jobofferEdit";
 import JobOfferAdd from "../Job-Offers/JobOfferAdd/jobofferAdd";
 import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
+import ChatBot from "../ChatBot/chatbot";
 
 class App extends Component {
     constructor(props) {
@@ -229,6 +230,11 @@ class App extends Component {
                             />
 
                             <Route path="/" element={<Navigate to="/joboffers" />} />
+                            <Route
+                                path="/chat"
+                                element={<ChatBot
+                                    />}
+                            />
                         </Routes>
                     </div>
                 </main>
