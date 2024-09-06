@@ -68,21 +68,44 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse authenticate(User request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()
-                )
-        );
+//        authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        request.getUsername(),
+//                        request.getPassword()
+//                )
+//        );
+//
+//        User user = repository.findByUsername(request.getUsername()).orElseThrow();
+//        String accessToken = jwtService.generateAccessToken(user);
+//        String refreshToken = jwtService.generateRefreshToken(user);
+//
+//        revokeAllTokenByUser(user);
+//        saveUserToken(accessToken, refreshToken, user);
+//
+//        return new AuthenticationResponse(accessToken, refreshToken, "User login was successful");
 
-        User user = repository.findByUsername(request.getUsername()).orElseThrow();
-        String accessToken = jwtService.generateAccessToken(user);
-        String refreshToken = jwtService.generateRefreshToken(user);
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getUsername(),
+                            request.getPassword()
+                    )
+            );
 
-        revokeAllTokenByUser(user);
-        saveUserToken(accessToken, refreshToken, user);
+            User user = repository.findByUsername(request.getUsername()).orElseThrow();
+            String accessToken = jwtService.generateAccessToken(user);
+            String refreshToken = jwtService.generateRefreshToken(user);
 
-        return new AuthenticationResponse(accessToken, refreshToken, "User login was successful");
+            revokeAllTokenByUser(user);
+            saveUserToken(accessToken, refreshToken, user);
+
+            return new AuthenticationResponse(accessToken, refreshToken, "User login was successful");
+
+        } catch (Exception e) {
+            // Log the exception for debugging
+            System.err.println("Authentication failed: " + e.getMessage());
+            return new AuthenticationResponse(null, null, "Invalid credentials");
+        }
 
     }
     private void revokeAllTokenByUser(User user) {

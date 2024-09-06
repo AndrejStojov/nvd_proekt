@@ -27,8 +27,23 @@ const AppService = {
         return axios.get(`/applications/${id}`);
     },
 
-    fetchCompanies: () => {
-        return axios.get("/company");
+     fetchCompanies : async () => {
+        try {
+
+            const token = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).access_token : '';
+
+            console.log(token)
+            const response = await axios.get("/companies", {
+                headers: {
+                    Authorization: `Bearer `+ localStorage.getItem("user")
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching companies:", error.response ? error.response.data : error.message);
+            throw error; // Rethrow the error if needed
+        }
     },
     addCompany: (name, description, location, address, logo, webSite) => {
         return axios.post("/company/add", {

@@ -11,6 +11,9 @@ import ApplicationAdd from "../Applications/ApplicationAdd/applicationAdd";
 import JobOfferEdit from "../Job-Offers/JobOfferEdit/jobofferEdit";
 import JobOfferAdd from "../Job-Offers/JobOfferAdd/jobofferAdd";
 import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
+import Login from "../Login/login";
+import Register from "../Register/register"
+
 
 class App extends Component {
     constructor(props) {
@@ -229,6 +232,8 @@ class App extends Component {
                             />
 
                             <Route path="/" element={<Navigate to="/joboffers" />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
                         </Routes>
                     </div>
                 </main>

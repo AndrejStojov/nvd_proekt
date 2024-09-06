@@ -68,7 +68,7 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(
-                        req -> req.requestMatchers("/login/**", "/register/**", "/refresh_token/**")
+                        req -> req.requestMatchers("/api/login", "/api/register", "/api/refresh_token", "/api/**")
                                 .permitAll()
                                 .requestMatchers("/admin_only/**").hasAuthority("ADMIN")
                                 .anyRequest()

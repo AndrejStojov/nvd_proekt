@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import authService from "../../repository/Authentication/auth_service";
 
 const header = (props) => {
 
@@ -21,6 +22,15 @@ const header = (props) => {
                         </li>
                         <li className="nav-item active">
                             <Link className={"nav-link"} to={"/joboffers"}>Job-Offers</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className={"nav-link"} to={"/login"}>Login</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className={"nav-link"} to={"/register"}>Register</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className={"nav-link"} to={"/logout"} onClick={authService.logout}>Logout</Link>
                         </li>
                     </ul>
                 </div>
