@@ -29,8 +29,6 @@ const AppService = {
 
      fetchCompanies :() => {
         
-
-
         return axios.get("/company");
         
         

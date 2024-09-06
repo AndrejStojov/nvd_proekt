@@ -24,6 +24,9 @@ const header = (props) => {
                             <Link className={"nav-link"} to={"/joboffers"}>Job-Offers</Link>
                         </li>
                         <li className="nav-item active">
+                            <Link className={"nav-link"} to={"/chat"}>ChatBot</Link>
+                        </li>
+                        <li className="nav-item active">
                             <Link className={"nav-link"} to={"/register"}>Register</Link>
                         </li>
                         <li className="nav-item active">
