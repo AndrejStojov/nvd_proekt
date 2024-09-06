@@ -68,11 +68,13 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(
-                        req -> req.requestMatchers("/api/login", "/api/register", "/api/refresh_token", "/api/**")
-                                .permitAll()
-                                .requestMatchers("/admin_only/**").hasAuthority("ADMIN")
-                                .anyRequest()
-                                .authenticated()
+                        req -> req
+                                .anyRequest().permitAll()
+//                                .requestMatchers("/api/login", "/api/register", "/api/refresh_token", "/api/**")
+//                                .permitAll()
+//                                .requestMatchers("/admin_only/**").hasAuthority("ADMIN")
+//                                .anyRequest()
+//                                .authenticated()
                 )
                 .userDetailsService(userServiceImpl)
                 .sessionManagement(session -> session
