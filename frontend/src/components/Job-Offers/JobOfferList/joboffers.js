@@ -34,6 +34,7 @@ class JobOffers extends React.Component {
                                 <th scope={"col"}>Ending Date</th>
                                 <th scope={"col"}>Location</th>
                                 <th scope={"col"}>Company</th>
+                                <th scope={"col"}>Applications</th>
                             </tr>
                             </thead>
                             <tbody>

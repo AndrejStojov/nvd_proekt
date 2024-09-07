@@ -70,10 +70,10 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(
                         req -> req
                                 .anyRequest().permitAll()
-//                                .requestMatchers("/api/login", "/api/register", "/api/refresh_token", "/api/**")
+//                                .requestMatchers("/api/login", "/api/register", "/api/refresh_token", "/api/company","/api/joboffers","/api/ai/chat")
 //                                .permitAll()
-//                                .requestMatchers("/admin_only/**").hasAuthority("ADMIN")
-//                                .anyRequest()
+//                                .requestMatchers("/api/company/add","/api/company/edit/**","/api/company/delete/**")
+//
 //                                .authenticated()
                 )
                 .userDetailsService(userServiceImpl)

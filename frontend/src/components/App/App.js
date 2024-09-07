@@ -14,6 +14,8 @@ import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
 import ChatBot from "../ChatBot/chatbot";
 import Login from "../Login/login";
 import Register from "../Register/register"
+import ApplicationApply from "../Applications/ApplyForm.js";
+import ApplyForm from "../Applications/ApplyForm.js";
 
 class App extends Component {
     constructor(props) {
@@ -47,8 +49,7 @@ class App extends Component {
     };
 
     loadCompanies = () => {
-       //how to get access token
-        //console.log( JSON.parse(localStorage.getItem("user")).access_token)
+       
         AppService.fetchCompanies()
             .then((data) => {
                 this.setState({ companies: data.data });
@@ -235,6 +236,7 @@ class App extends Component {
                                 }
                             />
                             <Route path="/chat" element={<ChatBot></ChatBot>} />
+                            <Route path="/apply" element={<ApplyForm />} />
                             <Route path="/" element={<Navigate to="/joboffers" />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
