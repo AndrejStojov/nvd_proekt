@@ -1,7 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
 const companyTerm = (props) => {
+    let applications= props.term.applicationList.map(application=> {
+        return <li>{application.name} {application.lastname}</li>})
     return (
         <tr>
             <td>{props.term.position}</td>
@@ -10,6 +13,11 @@ const companyTerm = (props) => {
             <td>{props.term.endingDate}</td>
             <td>{props.term.location}</td>
             <td>{props.term.company.name}</td>
+            <td><ul>
+               {applications}
+         
+          </ul></td>
+
             <td className={"text-right"}>
                 <a title={"Delete"} className={"btn btn-danger"}
                    onClick={() => props.onDelete(props.term.id)}>
