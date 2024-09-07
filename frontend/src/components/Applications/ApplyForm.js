@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const ApplyForm = () => {
+  const { id } = useParams(); 
   const [formData, setFormData] = useState({
-    jobOfferId: '',
+    jobOfferId: id,
     name: '',
     lastName: '',
     email: '',
@@ -43,10 +45,8 @@ const ApplyForm = () => {
         },
       });
 
-      // Ensure that response.data is displayed correctly
       setMessage(typeof response.data === 'string' ? response.data : JSON.stringify(response.data));
     } catch (err) {
-      // Ensure that error messages are handled correctly
       const errorMessage = err.response?.data?.message || err.response?.data || 'Error submitting the form';
       setError(typeof errorMessage === 'string' ? errorMessage : JSON.stringify(errorMessage));
     }
@@ -59,9 +59,9 @@ const ApplyForm = () => {
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="jobOfferId" className="form-label">Job Offer ID</label>
+          
           <input
-            type="number"
+            type="hidden"
             id="jobOfferId"
             name="jobOfferId"
             className="form-control"

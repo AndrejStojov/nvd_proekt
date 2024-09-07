@@ -14,7 +14,6 @@ import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
 import ChatBot from "../ChatBot/chatbot";
 import Login from "../Login/login";
 import Register from "../Register/register"
-import ApplicationApply from "../Applications/ApplyForm.js";
 import ApplyForm from "../Applications/ApplyForm.js";
 
 class App extends Component {
@@ -236,7 +235,7 @@ class App extends Component {
                                 }
                             />
                             <Route path="/chat" element={<ChatBot></ChatBot>} />
-                            <Route path="/apply" element={<ApplyForm />} />
+                            <Route path="/apply/:id" element={<ApplyForm />} />
                             <Route path="/" element={<Navigate to="/joboffers" />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />

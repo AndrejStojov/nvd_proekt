@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
-const companyTerm = (props) => {
-    let applications= props.term.applicationList.map(application=> {
-        return <li>{application.name} {application.lastname}</li>})
+const JobOfferTerm = (props) => {
+    // let applications= props.applicationList.map(application=> {
+    //     return <li>{application.name}</li>})
     return (
         <tr>
             <td>{props.term.position}</td>
@@ -14,12 +14,12 @@ const companyTerm = (props) => {
             <td>{props.term.location}</td>
             <td>{props.term.company.name}</td>
             <td><ul>
-               {applications}
+           
          
           </ul></td>
 
             <td className={"text-right"}>
-                <a title={"Delete"} className={"btn btn-danger"}
+                <a href='/joboffers' title={"Delete"} className={"btn btn-danger"}
                    onClick={() => props.onDelete(props.term.id)}>
                     Delete
                 </a>
@@ -28,9 +28,13 @@ const companyTerm = (props) => {
                       to={`/companies/edit/${props.term.id}`}>
                     Edit
                 </Link>
+                <Link className={"btn btn-success ml-2"}
+                      to={`/apply/${props.term.id}`}>
+                    apply
+                </Link>
             </td>
         </tr>
     )
 }
 
-export default companyTerm;
+export default JobOfferTerm;
