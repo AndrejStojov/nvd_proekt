@@ -14,14 +14,13 @@ import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
 import ChatBot from "../ChatBot/chatbot";
 import Login from "../Login/login";
 import Register from "../Register/register"
-<<<<<<< HEAD
-=======
+
 
 import Home from "../Home/home";
 import Details from "../Details/details";
 
 import ApplicationApply from "../Applications/ApplyForm.js";
->>>>>>> 03143b40c55d0c191ab93495f2306bd4a6024938
+
 import ApplyForm from "../Applications/ApplyForm.js";
 
 
