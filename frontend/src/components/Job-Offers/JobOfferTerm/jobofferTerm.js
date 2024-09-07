@@ -25,7 +25,7 @@ const JobOfferTerm = (props) => {
                 </a>
                 <Link className={"btn btn-info ml-2"}
                       onClick={() => props.onEdit(props.term.id)}
-                      to={`/companies/edit/${props.term.id}`}>
+                      to={`/joboffers/edit/${props.term.id}`}>
                     Edit
                 </Link>
                 <Link className={"btn btn-success ml-2"}
