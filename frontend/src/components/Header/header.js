@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import authService from "../../repository/Authentication/auth_service";
 
-const header = (props) => {
+const Header = (props) => {
+    const [currentUser,setCurrentUser]=useState(false)
+    useEffect(() => {
+        const user=authService.getCurrentUser()
+        if(user){
+            setCurrentUser(user)
+        }
+    }, []) 
+
+    const logout=()=>{
+        authService.logout()
+    
+    }
 
     return (
         <header>
@@ -26,15 +38,24 @@ const header = (props) => {
                         <li className="nav-item active">
                             <Link className={"nav-link"} to={"/chat"}>ChatBot</Link>
                         </li>
-                        <li className="nav-item active">
-                            <Link className={"nav-link"} to={"/register"}>Register</Link>
+                        {!currentUser && (
+                            <>
+                                <li className="nav-item active">
+                                    <a className={"nav-link"} href={"/register"}>Register</a>
+                                </li>
+                                <li className="nav-item active">
+                                    <a className={"nav-link"} href={"/login"}>Login</a>
+                                </li>
+                            </>
+                        )}
+                         {currentUser && (
+                            <>
+                            <li className="nav-item active">
+                            <a className={"nav-link"} href={"/login"} onClick={logout}>Logout</a>
                         </li>
-                        <li className="nav-item active">
-                            <Link className={"nav-link"} to={"/login"}>Login</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link className={"nav-link"} to={"/logout"} onClick={authService.logout}>Logout</Link>
-                        </li>
+                            </>
+                         )}
+                        
                     </ul>
                 </div>
             </nav>
@@ -42,4 +63,4 @@ const header = (props) => {
     )
 }
 
-export default header;
+export default Header;

@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import axios from "../../custom-axios/axios";
 
 const API_URL = "/";
@@ -30,6 +31,12 @@ const login = (username, password) => {
         .then((response) => {
             if (response.data.access_token) {
                 localStorage.setItem("user", JSON.stringify(response.data));
+                redirect("/joboffers")
+                
+                setTimeout(() => {
+                    window.location.reload()
+                  }, 50);                
+
             }
 
             return response.data;
@@ -38,10 +45,12 @@ const login = (username, password) => {
 
 const logout = () => {
     localStorage.removeItem("user");
+    window.location.reload()
+
 };
 
 const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
+    return localStorage.getItem("user")? JSON.parse(localStorage.getItem("user")) : false;
 };
 const authService = {
     register,

@@ -1,4 +1,5 @@
 import axios from '../custom-axios/axios';
+import authHeader from './Authentication/header/auth_header';
 
 const AppService = {
     fetchApplications: () => {

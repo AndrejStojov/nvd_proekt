@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Applications from "../Applications/ApplicationList/applications";
 import Companies from "../Companies/CompanyList/companies";
 import JobOffers from "../Job-Offers/JobOfferList/joboffers";
-import Header from "../Header/header";
+import Header from "../Header/Header";
 import AppService from "../../repository/appRepository";
 import CompanyAdd from "../Companies/CompanyAdd/companyAdd";
 import CompanyEdit from "../Companies/CompanyEdit/companyEdit";
@@ -48,7 +48,7 @@ class App extends Component {
 
     loadCompanies = () => {
        //how to get access token
-        console.log( JSON.parse(localStorage.getItem("user")).access_token)
+        //console.log( JSON.parse(localStorage.getItem("user")).access_token)
         AppService.fetchCompanies()
             .then((data) => {
                 this.setState({ companies: data.data });
