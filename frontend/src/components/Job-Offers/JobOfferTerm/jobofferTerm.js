@@ -17,7 +17,7 @@ const companyTerm = (props) => {
                 </a>
                 <Link className={"btn btn-info ml-2"}
                       onClick={() => props.onEdit(props.term.id)}
-                      to={`/companies/edit/${props.term.id}`}>
+                      to={`/joboffers/edit/${props.term.id}`}>
                     Edit
                 </Link>
             </td>

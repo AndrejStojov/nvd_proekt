@@ -20,7 +20,11 @@ public class JobOfferController {
     }
 
     @GetMapping()
-    public List<JobOffer> listAllJobOffers(){
+    public List<JobOffer> listAllJobOffers(@RequestParam(required = false) String name){
+        if(name!=null){
+            return jobOfferService.filter(name);
+        }
+
         return jobOfferService.findAll();
     }
 

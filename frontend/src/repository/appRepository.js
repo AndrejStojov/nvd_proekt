@@ -2,6 +2,9 @@ import axios from '../custom-axios/axios';
 import authHeader from './Authentication/header/auth_header';
 
 const AppService = {
+    fetchJobOffersFilter:(name)=>{
+        return axios.get(`/joboffers?name=${name}`)
+    },
     fetchApplications: () => {
         return axios.get("/applications");
     },

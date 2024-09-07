@@ -1,7 +1,6 @@
 package com.example.backend.service;
 
 import com.example.backend.domain.models.Application;
-import com.example.backend.domain.models.Company;
 import com.example.backend.domain.models.JobOffer;
 
 import java.time.LocalDate;
@@ -18,4 +17,5 @@ public interface JobOfferService {
     List<Application> getApplicationsForJobOffer(Long jobOfferId);
     JobOffer findByNameAndCompany(String position,String CompanyName);
     JobOffer saveJobOffer(JobOffer jobOffer);
+    List<JobOffer> filter(String name);
 }

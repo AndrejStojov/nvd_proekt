@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Applications from "../Applications/ApplicationList/applications";
 import Companies from "../Companies/CompanyList/companies";
 import JobOffers from "../Job-Offers/JobOfferList/joboffers";
-import Header from "../Header/Header";
+import Header from "../Header/header";
 import AppService from "../../repository/appRepository";
 import CompanyAdd from "../Companies/CompanyAdd/companyAdd";
 import CompanyEdit from "../Companies/CompanyEdit/companyEdit";
@@ -14,6 +14,8 @@ import ApplicationEdit from "../Applications/ApplicationEdit/ApplicationEdit";
 import ChatBot from "../ChatBot/chatbot";
 import Login from "../Login/login";
 import Register from "../Register/register"
+import Home from "../Home/home";
+import Details from "../Details/details";
 
 class App extends Component {
     constructor(props) {
@@ -38,6 +40,14 @@ class App extends Component {
         this.loadJobOffers();
     };
 
+    loadFilteredJobOffers=(name)=>{
+        AppService.fetchJobOffersFilter(name)
+            .then((data) => {
+                this.setState({
+                    joboffers: data.data
+                })
+            });
+    }
     loadApplications = () => {
         AppService.fetchApplications()
             .then((data) => {
@@ -168,11 +178,23 @@ class App extends Component {
 
     render() {
         return (
+
             <Router>
+
+
                 <Header />
                 <main>
-                    <div className="container">
+                    <div >
                         <Routes>
+                            <Route path="/home" element={<Home
+                            joboffers={this.state.joboffers}
+                            onFilter={this.loadFilteredJobOffers}
+                            select={this.getJobOffer}
+                        />} />
+                            <Route path="/job_details/:id" element={<Details
+                            joboffer={this.state.selectedJobOffer}
+                            getJobOffer={this.getJobOffer}
+                            />} />
                             <Route
                                 path="/applications"
                                 element={<Applications
@@ -238,9 +260,12 @@ class App extends Component {
                             <Route path="/" element={<Navigate to="/joboffers" />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
+
+
                         </Routes>
                     </div>
                 </main>
+
             </Router>
         );
     }
