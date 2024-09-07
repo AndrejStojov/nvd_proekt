@@ -25,7 +25,7 @@ const Header = (props) => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav">
                         <li className="nav-item active">
                             <Link className="nav-link" to={"/applications"}>Applications</Link>
                         </li>
@@ -38,7 +38,14 @@ const Header = (props) => {
                         <li className="nav-item active">
                             <Link className={"nav-link"} to={"/chat"}>ChatBot</Link>
                         </li>
-                        {!currentUser && (
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                    <ul className="navbar-nav ms-auto me-3">
+                    {!currentUser && (
                             <>
                                 <li className="nav-item active">
                                     <a className={"nav-link"} href={"/register"}>Register</a>
@@ -55,7 +62,6 @@ const Header = (props) => {
                         </li>
                             </>
                          )}
-                        
                     </ul>
                 </div>
             </nav>
