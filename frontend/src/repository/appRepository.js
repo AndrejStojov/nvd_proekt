@@ -93,7 +93,9 @@ const AppService = {
 
     getJobOffer:(id)=>{
         return axios.get(`/joboffers/${id}`);
-    }
+    },
+    
+    
 
 };
 

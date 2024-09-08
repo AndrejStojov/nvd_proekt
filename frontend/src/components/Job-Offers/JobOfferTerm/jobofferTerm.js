@@ -19,7 +19,7 @@ const JobOfferTerm = (props) => {
           </ul></td>
 
             <td className={"text-right"}>
-                <a href='/joboffers' title={"Delete"} className={"btn btn-danger"}
+                <a  title={"Delete"} className={"btn btn-danger"}
                    onClick={() => props.onDelete(props.term.id)}>
                     Delete
                 </a>
